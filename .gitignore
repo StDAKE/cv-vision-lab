@@ -28,3 +28,6 @@ Desktop.ini
 # npm
 npm-debug.log*
 package-lock.json
+
+# 教案讲稿（个人备课材料，不上传）
+doc/
