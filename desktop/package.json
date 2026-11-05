@@ -1,0 +1,45 @@
+{
+  "name": "cv-lab",
+  "productName": "CV可视化教学台",
+  "version": "1.0.0",
+  "description": "深度学习与计算机视觉 · 可视化教学辅助软件",
+  "main": "main.js",
+  "author": "CV Lab",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "cn.cvlab.teaching",
+    "productName": "CV可视化教学台",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "CV可视化教学台-${version}.exe"
+    },
+    "portable": {
+      "artifactName": "CV可视化教学台.exe",
+      "splashImage": null
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  }
+}

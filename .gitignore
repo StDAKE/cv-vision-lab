@@ -1,0 +1,30 @@
+# 依赖与构建产物（体积巨大，GitHub/Gitee 拒绝大文件）
+node_modules/
+desktop/dist/
+desktop/dist2/
+desktop/dist3/
+desktop/dist5/
+desktop/dist*/
+desktop/_tmp_*
+desktop/_build.log
+desktop/build/
+desktop/app/vendor/
+
+# 打包中间文件
+*.tmp
+_tmp_leftover*/
+
+# WorkBuddy 项目数据（本地会话记忆，不属于源码）
+.workbuddy/
+
+# 系统与编辑器
+Thumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# npm
+npm-debug.log*
+package-lock.json

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深度学习与计算机视觉 · 可视化教学台</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="loading" id="bootLoading">
+  <div class="box">
+    <div class="spinner"></div>
+    <div class="txt">正在启动算子线程…</div>
+  </div>
+</div>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">CV</span>
+      <div class="brand-txt">
+        <strong>可视化教学台</strong>
+        <span id="lectureTitle">深度学习的图像基础</span>
+      </div>
+    </div>
+    <nav class="lectures" id="lectureNav"></nav>
+    <div class="tools">
+      <select id="imgSel" class="sel-btn" title="内置素材（程序合成，无版权依赖）"></select>
+      <button class="btn" id="btnPreset">演示预设</button>
+      <button class="btn" id="btnUpload">导入图像</button>
+      <button class="btn" id="btnShot">截图</button>
+      <button class="btn" id="btnFull">全屏</button>
+      <button class="btn icon" id="btnHelp" title="帮助">?</button>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+  </header>
+
+  <main class="grid" id="grid">
+    <section class="zone" id="zoneA">
+      <div class="zone-head">
+        <span class="zone-tag">A</span>
+        <h2>图像对比区</h2>
+        <div class="zone-tools" id="aTools"></div>
+      </div>
+      <div class="zone-body" id="aBody"></div>
+    </section>
+
+    <section class="zone" id="zoneB">
+      <div class="zone-head">
+        <span class="zone-tag">B</span>
+        <h2>矩阵区 · 数字本质</h2>
+        <div class="zone-tools" id="bTools"></div>
+      </div>
+      <div class="zone-body" id="bBody"></div>
+    </section>
+
+    <section class="zone" id="zoneC">
+      <div class="zone-head">
+        <span class="zone-tag">C</span>
+        <h2>参数调节区</h2>
+        <div class="zone-tools" id="cTools"></div>
+      </div>
+      <div class="zone-body" id="cBody"></div>
+    </section>
+
+    <section class="zone" id="zoneD">
+      <div class="zone-head">
+        <span class="zone-tag">D</span>
+        <h2>代码执行区</h2>
+        <div class="zone-tools" id="dTools"></div>
+      </div>
+      <div class="zone-body" id="dBody"></div>
+    </section>
+  </main>
+
+  <footer class="statusbar">
+    <span id="stImg" title="当前素材">素材 —</span>
+    <span class="dot"></span>
+    <span id="stShape">shape —</span>
+    <span class="dot"></span>
+    <span id="stDtype">dtype —</span>
+    <span class="dot"></span>
+    <span id="stMem">—</span>
+    <span class="dot"></span>
+    <span id="stOp">算子 —</span>
+    <span class="dot"></span>
+    <span id="stTime">— ms</span>
+    <span class="spacer"></span>
+    <span id="stHint" class="hint"></span>
+  </footer>
+</div>
+
+<div class="overlay" id="helpOverlay" hidden>
+  <div class="sheet">
+    <h3>使用说明</h3>
+    <div class="help-grid">
+      <div><b>四区联动</b><p>四个区域共享同一份状态。改动任何参数，画面、矩阵、代码同时更新。</p></div>
+      <div><b>A 区</b><p>1/2/3/4 切换 并排 / 滑块 / 差分 / 叠加。滚轮缩放，拖拽平移，点击取像素探针。</p></div>
+      <div><b>B 区</b><p>灰度/R/G/B/H/S/V 通道平面、HWC/CHW 读法、滑窗逐格计算、中值排序动画。</p></div>
+      <div><b>C 区</b><p>算子与参数。每个参数旁标注教案出处，超出合理范围会给教学提示。</p></div>
+      <div><b>D 区</b><p>真实可运行的 Python 代码。播放时逐行高亮，变量面板显示当前中间值。</p></div>
+      <div><b>快捷</b><p>空格：播放/暂停 · ←/→：单步 · R：复位 · F：全屏</p></div>
+    </div>
+    <button class="btn primary" id="btnHelpClose">知道了</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="src/core/util.js"></script>
+<script src="src/core/imgops.js"></script>
+<script src="src/core/cv.js"></script>
+<script src="src/core/metrics.js"></script>
+<script src="src/core/trace.js"></script>
+<script src="src/assets/images.js"></script>
+<script src="src/operators/registry.js"></script>
+<script src="src/operators/ops.js"></script>
+<script src="src/ui/viewA.js"></script>
+<script src="src/ui/viewB.js"></script>
+<script src="src/ui/viewC.js"></script>
+<script src="src/ui/viewD.js"></script>
+<script src="src/ui/pipeline.js"></script>
+<script src="src/modules/lectures.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
